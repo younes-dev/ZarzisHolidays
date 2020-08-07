@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit User{% endblock %}
+
+{% block body %}
+
+    <div class="container mb-5 mt-5 ">
+        <div class="row.justify-content-center">
+            <h1 class="text-center">Edit User</h1>
+
+            <div class="col-md-12">
+{#                {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}#}
+
+                {###################################################}
+                {{ form_start(form) }}
+                {{ form_row(form.prenom) }}
+                {{ form_row(form.nom) }}
+                {{ form_row(form.username) }}
+                {{ form_row(form.email) }}
+                {{ form_row(form.adresse) }}
+                {{ form_row(form.password) }}
+                {{ form_row(form.retypePassword) }}
+
+                    {{ form_row(form.isValide) }}
+
+
+
+                {{ (form_row(form.roles)) }}
+
+                {{ form_row(form.createdAt) }}
+                {{ form_row(form.updatedAt) }}
+                <button class="btn btn-primary" style="width: 350px!important;">{{ button_label|default(' Save ') }}</button>
+                {{ form_end(form) }}
+
+                {###################################################}
+
+
+
+
+                <a href="{{ path('user_index') }}" class="btn btn-default" style="margin-left: 380px; margin-top: -60px">back to list</a>
+
+                {{ include('user/_delete_form.html.twig') }}
+            </div>
+        </div>
+    </div>
+    {% endblock %}
