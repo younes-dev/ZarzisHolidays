@@ -5,6 +5,17 @@
 {% block body %}
 {#    <div class="container">#}
 {#        <div class="row">#}
+    <style>
+        .fa-check-circle-o {
+            text-shadow: 3px 3px 3px #bac2c1;
+            color: #00CC00!important;
+
+        }
+        .fa-ban {
+            text-shadow: 3px 3px 3px  red;
+            color: #F0F0F0!important;
+        }
+    </style>
     <div class="title text-center"> <h1>User Dashboard </h1></div>
         <div class="container-fluid mb-5 mt-5">
             <table class="table">
@@ -80,10 +91,16 @@
                         <td>
                         {% set isValid=user.isValide %}
                         {% if isValid is same as(true) %}
-                            <i class="fa fa-check-circle-o" style="font-size:38px;color:#0cc745;margin-top: -5px"></i>
+                            <i class="fa fa-check-circle-o" style="font-size:38px;margin-top: -10px"></i>
                         {% else  %}
-                            <i class="fa fa-ban" style="font-size:38px;color:red;margin-top: -5px"></i>
+                            <i class="fa fa-ban" style="font-size:38px;margin-top: -10px"></i>
                         {% endif  %}
+                           {#  FaveIcone Sizes  #}
+                           {# <i class="fa fa-camera-retro fa-lg"></i> #}
+                           {# <i class="fa fa-camera-retro fa-2x"></i>#}
+                           {# <i class="fa fa-camera-retro fa-3x"></i> #}
+                           {# <i class="fa fa-camera-retro fa-4x"></i> #}
+                           {# <i class="fa fa-camera-retro fa-5x"></i> #}
                         </td>
 
                         <td>{{ user.createdAt ? user.createdAt|date('Y-m-d H:i:s') : '' }}</td>
