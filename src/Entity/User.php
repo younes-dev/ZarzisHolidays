@@ -232,6 +232,9 @@ class User implements UserInterface, \Serializable
 
     public function setIsValide(bool $isValide): self
     {
+//        if($isValide === false){
+//            $isValide=0;
+//        }
         $this->isValide = $isValide;
 
         return $this;

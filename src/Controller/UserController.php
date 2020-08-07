@@ -46,6 +46,7 @@ class UserController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $user->setPassword($passwordEncoder->encodePassword($user, $form->get('password')->getData()));
             $user->setRoles(["ROLE_USER"]);
+
 //            $user->setIsValide(false);
 
             //dump($user);die;
@@ -87,7 +88,14 @@ class UserController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
 
             $user->setUpdatedAt(new \DateTime());
+            //dump(($form->getData()->getIsValide()));die;
 
+//            if($form->getData()->getIsValide() == false){
+//                $user->setIsValide(0);
+//            }
+//            if($form->getData()->getIsValide() == true){
+//                $user->setIsValide(1);
+//            }
             $this->getDoctrine()->getManager()->persist($user);
             $this->getDoctrine()->getManager()->flush();
 

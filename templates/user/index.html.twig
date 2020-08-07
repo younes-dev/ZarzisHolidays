@@ -76,7 +76,16 @@
 
                         </td>
                         <td>{{ user.adresse }}</td>
-                        <td>{{ user.isValide }}</td>
+
+                        <td>
+                        {% set isValid=user.isValide %}
+                        {% if isValid is same as(true) %}
+                            <i class="fa fa-check-circle-o" style="font-size:38px;color:#0cc745;margin-top: -5px"></i>
+                        {% else  %}
+                            <i class="fa fa-ban" style="font-size:38px;color:red;margin-top: -5px"></i>
+                        {% endif  %}
+                        </td>
+
                         <td>{{ user.createdAt ? user.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                         <td>{{ user.updatedAt ? user.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
                         <td>

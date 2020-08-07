@@ -3,6 +3,8 @@
 {% block title %}User{% endblock %}
 
 {% block body %}
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <h1>User</h1>
 
     <table class="table">
@@ -38,7 +40,15 @@
             </tr>
             <tr>
                 <th>isValide</th>
-                <td>{{ user.isValide }}</td>
+
+                <td>
+                    {% set isValid=user.isValide %}
+                    {% if isValid is same as(true) %}
+                    <i class="fa fa-check-circle" style="font-size:38px;color:#0cc745"></i>
+                    {% else  %}
+                        <i class="fa fa-ban" style="font-size:38px;color:red"></i>
+                    {% endif  %}
+                </td>
             </tr>
             <tr>
                 <th>CreatedAt</th>
@@ -57,3 +67,14 @@
 
     {{ include('user/_delete_form.html.twig') }}
 {% endblock %}
+{#{% block javascripts %}#}
+{#    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>#}
+{#    <script>#}
+{#        $(function() {#}
+{#            $('#toggle-two').bootstrapToggle({#}
+{#                on: 'Enabled',#}
+{#                off: 'Disabled'#}
+{#            });#}
+{#        })#}
+{#    </script>#}
+{#{% endblock %}#}

@@ -27,23 +27,18 @@ class UserType extends AbstractType
             ->add('username')
             ->add('createdAt')
             ->add('updatedAt')
-            ->add('isValide', ChoiceType::class, [
-                'label' => 'State of the validation',
-                'choices' => [
-                    'Yes' => true,
-                    'No' => false
-                ],
-                'expanded' => true,
+            ->add('isValide', CheckboxType::class, [
+            'required' => false,
+                'label' => '   Status',
+
+//                'attr' => [
+//                    'checked' => 'checked',
+//                     'value' => '1'
+//                ]
+
             ])
 
-
-//            ->add('isValide', CheckboxType::class, [
-//                'label_attr' => [
-//                    'class' => 'switch-custom  bg-light',
-//                    'style' => 'background:red; color:#007bff;width:50px;height:30px;font-weight:bold'],
-//                'required' => false,
-//            ])
-
+            // ChoiceType working fine
 //            ->add('isValide', ChoiceType::class, [
 //                'choices' => [
 //                    'Yes' => true,

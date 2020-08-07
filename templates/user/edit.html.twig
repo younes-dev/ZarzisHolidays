@@ -3,12 +3,14 @@
 {% block title %}Edit User{% endblock %}
 
 {% block body %}
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <div class="container mb-5 mt-5 ">
-        <div class="row.justify-content-center">
+{#        <div class="row.justify-content-center">#}
             <h1 class="text-center">Edit User</h1>
 
-            <div class="col-md-12">
+{#            <div class="col-md-12">#}
 {#                {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}#}
 
                 {###################################################}
@@ -21,12 +23,9 @@
                 {{ form_row(form.password) }}
                 {{ form_row(form.retypePassword) }}
 
-                    {{ form_row(form.isValide) }}
-
-
+                {{ form_row(form.isValide,{'id':'toggle-two'}) }}
 
                 {{ (form_row(form.roles)) }}
-
                 {{ form_row(form.createdAt) }}
                 {{ form_row(form.updatedAt) }}
                 <button class="btn btn-primary" style="width: 350px!important;">{{ button_label|default(' Save ') }}</button>
@@ -34,13 +33,26 @@
 
                 {###################################################}
 
-
-
-
                 <a href="{{ path('user_index') }}" class="btn btn-default" style="margin-left: 380px; margin-top: -60px">back to list</a>
 
                 {{ include('user/_delete_form.html.twig') }}
+
+        <br><br><br>
+{#        <input type="checkbox" data-toggle="toggle" data-on="Enabled" data-off="Disabled">#}
+{#        <input type="checkbox" id="toggle-two">#}
             </div>
-        </div>
-    </div>
+{#        </div>#}
+{#    </div>#}
     {% endblock %}
+
+{% block javascripts %}
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+    <script>
+        $(function() {
+            $('#toggle-two').bootstrapToggle({
+                on: 'Enabled',
+                off: 'Disabled'
+            });
+        })
+    </script>
+{% endblock %}
