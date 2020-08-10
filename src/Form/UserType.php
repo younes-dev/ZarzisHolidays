@@ -29,7 +29,7 @@ class UserType extends AbstractType
             ->add('updatedAt')
             ->add('isValide', CheckboxType::class, [
             'required' => false,
-                'label' => '   Status',
+                'label' => "Status",
 
 //                'attr' => [
 //                    'checked' => 'checked',
@@ -49,6 +49,7 @@ class UserType extends AbstractType
 //
             ->add('roles', ChoiceType::class, [
                 'choices' => [
+                    'SUPER ADMIN' => 'ROLE_SUPER_ADMIN',
                     'ADMIN' => 'ROLE_ADMIN',
                     'USER' => 'ROLE_USER',
                     'Editor' => 'ROLE_EDITOR',

@@ -70,6 +70,7 @@
 {#                            {% endif %}#}
 
 {#                        {% set mappingRoles={"ROLE_ADMIN" : "ADMIN","ROLE_USER" : "USER","ROLE_EDITOR" : "EDITOR"} %}#}
+                            {% set SUPER_ADMIN="ROLE_SUPER_ADMIN" %}
                             {% set ADMIN="ROLE_ADMIN" %}
                             {% set USER="ROLE_USER" %}
                             {% set EDITOR="ROLE_EDITOR" %}
@@ -79,6 +80,8 @@
                                     USER
                                 {% elseif role is same as (ADMIN) %}
                                     ADMIN
+                                {% elseif role is same as (SUPER_ADMIN) %}
+                                    SUPER ADMIN
                                 {% elseif role is same as (EDITOR) %}
                                     EDITOR
                                 {% endif %}

@@ -28,7 +28,7 @@
             <tr>
                 <th>Role</th>
                 <td>
-                    {% set mappingRoles={'ROLE_ADMIN' : 'ADMIN','ROLE_USER' : 'USER','ROLE_EDITOR' : 'EDITOR'} %}
+                    {% set mappingRoles={'ROLE_ADMIN' : 'ADMIN','ROLE_USER' : 'USER','ROLE_EDITOR' : 'EDITOR', 'ROLE_SUPER_ADMIN': 'SUPER ADMIN'} %}
                     {% for role  in user.roles  %}
                         {{ mappingRoles[role] }}
                     {% endfor %}</td>

@@ -29,6 +29,12 @@ security:
                 login_path: login
                 check_path: login
 
+    role_hierarchy:
+        ROLE_EDITOR:      ROLE_USER
+        ROLE_ADMIN:       [ROLE_USER,ROLE_EDITOR]
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+
+
             # https://symfony.com/doc/current/security/form_login_setup.html
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
@@ -42,6 +48,6 @@ security:
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/inscription, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin, roles: ROLE_ADMIN }
-        - { path: ^/dashboard, roles: [ROLE_USER,ROLE_ADMIN] }
+        - { path: ^/dashboard, roles: [ROLE_EDITOR,ROLE_ADMIN,ROLE_SUPER_ADMIN] }
     # - { path: ^/profile, roles: ROLE_USER }
 

@@ -28,6 +28,16 @@ class UserController extends AbstractController
         ]);
     }
 
+
+    /**
+     * @Route("/maps", name="maps")
+     */
+    public function maps() :Response
+    {
+        return $this->render('carte.html.twig');
+    }
+
+
     /**
      * @Route("/new", name="user_new", methods={"GET","POST"})
      * @param Request $request
@@ -88,14 +98,10 @@ class UserController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
 
             $user->setUpdatedAt(new \DateTime());
-            //dump(($form->getData()->getIsValide()));die;
+//            dump(($form->getData()->getPassword()));
+//            dump(($form->getData()->getRetypePassword()));
+//            die;
 
-//            if($form->getData()->getIsValide() == false){
-//                $user->setIsValide(0);
-//            }
-//            if($form->getData()->getIsValide() == true){
-//                $user->setIsValide(1);
-//            }
             $this->getDoctrine()->getManager()->persist($user);
             $this->getDoctrine()->getManager()->flush();
 
